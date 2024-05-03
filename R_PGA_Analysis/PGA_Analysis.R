@@ -5,7 +5,6 @@
 
 ##### Data Cleaning ############################################################
 
-
 options(scipen=999)
 
 pga = read.csv('./Math_150_data/pgaTourData.csv')
