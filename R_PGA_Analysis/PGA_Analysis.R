@@ -147,9 +147,7 @@ woods <- subset(pga, pga$Player.Name == 'Tiger Woods', select = c("Average.SG.Pu
 woods_cleaned <- subset(woods, woods$Average.SG.Putts != is.na, select = c("Average.SG.Putts","SG.OTT","SG.APR", "SG.ARG"))
 woods_cleaned <- na.omit(woods)
 woods_cleaned
-barplot(c(mean(woods_cleaned$Average.SG.Putts), mean(woods_cleaned$SG.OTT), mean(woods_cleaned$SG.APR), mean(woods_cleaned$SG.ARG)), xlab = "Part of Game",
-        ylab = "Strokes Gained", main ="Tiger Woods Strokes Gained Stats", names.arg = c('AVG.SG.PT', 'SG.OTT', 'SG.APR', 'SG.ARG'), las = 1
-)
+barplot(c(mean(woods_cleaned$Average.SG.Putts), mean(woods_cleaned$SG.OTT), mean(woods_cleaned$SG.APR), mean(woods_cleaned$SG.ARG)), xlab = "Part of Game", ylab = "Strokes Gained", main ="Tiger Woods Strokes Gained Stats", names.arg = c('AVG.SG.PT', 'SG.OTT', 'SG.APR', 'SG.ARG'), las = 1)
 hist(pga$SG.APR)
 z_score <- (1.2-mean(pga$SG.APR))/sd(pga$SG.APR)
 z_score
