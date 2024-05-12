@@ -1,10 +1,5 @@
 
-
-
-
-
 ##### Data Cleaning ############################################################
-
 
 options(scipen=999)
 
@@ -44,7 +39,6 @@ cor(pga$Fairway.Percentage, pga$Money, use = "complete.obs")
 text(60, 11000000, 'r = 0.01547088', font = 2, col = 'red')
 axis(2,cex.axis=0.5, las = 2)
 
-
 ## Average distance and Money
 plot(pga$Avg.Distance, pga$Money, col = 'black', main ='Average Driving Distance (yards) on Dollars Earned (USD)',cex.main=0.86, ylab = 'Dollars Earned (USD)', xlab = 'Average Driving Distance (yards)', pch = 16, cex = 0.6, yaxt="n")
 fit = lm(pga$Money ~ pga$Avg.Distance)
@@ -53,7 +47,6 @@ cor(pga$Avg.Distance, pga$Money, use = "complete.obs")
 text(277, 10000000, 'r = 0.3306003', font = 2, col = 'red')
 axis(2,cex.axis=0.5, las = 2)
 
-
 ## Greens in regulation and Money
 plot(pga$gir, pga$Money, col = 'black', main ='Number of Greens in Regulation on Dollars Earned (USD)',cex.main=0.86, ylab = 'Dollars Earned (USD)', xlab = 'Number of Greens in Regulation', pch = 16, cex = 0.6, yaxt="n")
 fit = lm(pga$Money ~ pga$gir)
@@ -61,7 +54,6 @@ abline(fit, col = 'red')
 cor(pga$gir, pga$Money, use = "complete.obs")
 text(59, 10000000, 'r = 0.316449', font = 2, col = 'red')
 axis(2,cex.axis=0.5, las = 2)
-
 
 ## Average putts and Money - axes reversed
 plot(pga$Average.Putts, pga$Money, col = 'black', main ='Average Number of Putts on Dollars Earned (USD)',cex.main=0.86, ylab = 'Dollars Earned (USD)', xlab = 'Average Number of Putts', pch = 16, cex = 0.6, yaxt="n", xlim = rev(range(pga$Average.Putts)))
@@ -155,9 +147,7 @@ woods <- subset(pga, pga$Player.Name == 'Tiger Woods', select = c("Average.SG.Pu
 woods_cleaned <- subset(woods, woods$Average.SG.Putts != is.na, select = c("Average.SG.Putts","SG.OTT","SG.APR", "SG.ARG"))
 woods_cleaned <- na.omit(woods)
 woods_cleaned
-barplot(c(mean(woods_cleaned$Average.SG.Putts), mean(woods_cleaned$SG.OTT), mean(woods_cleaned$SG.APR), mean(woods_cleaned$SG.ARG)), xlab = "Part of Game",
-        ylab = "Strokes Gained", main ="Tiger Woods Strokes Gained Stats", names.arg = c('AVG.SG.PT', 'SG.OTT', 'SG.APR', 'SG.ARG'), las = 1
-)
+barplot(c(mean(woods_cleaned$Average.SG.Putts), mean(woods_cleaned$SG.OTT), mean(woods_cleaned$SG.APR), mean(woods_cleaned$SG.ARG)), xlab = "Part of Game", ylab = "Strokes Gained", main ="Tiger Woods Strokes Gained Stats", names.arg = c('AVG.SG.PT', 'SG.OTT', 'SG.APR', 'SG.ARG'), las = 1)
 hist(pga$SG.APR)
 z_score <- (1.2-mean(pga$SG.APR))/sd(pga$SG.APR)
 z_score
